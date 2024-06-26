@@ -19,7 +19,24 @@
   </head>
   <body>
     <main class="page">
-      <h1>Heading for example</h1>
+      <article class="test-card" aria-label="Test results">
+        <header class="test-card__header">
+          <h1 class="test-card__result">Your Result</h1>
+          <div class="test-card__score-container">
+            <span class="test-card__score-result" id="score-result">0</span>
+            <span class="test-card__score-max">of 100</span>
+          </div>
+          <p class="test-card__status">Great</p>
+          <p class="test-card__conclusion">
+            You scored higher than 65% of the people who have taken these tests.
+          </p>
+        </header>
+        <section class="test-card__summary-section" aria-labelledby="summary">
+          <h2 class="test-card__summary" id="summary">Summary</h2>
+          <ul class="test-card__list" id="summary-list"></ul>
+          <button class="test-card__btn" type="button">Continue</button>
+        </section>
+      </article>
     </main>
   </body>
 </html>
