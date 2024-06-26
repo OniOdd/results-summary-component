@@ -1,0 +1,17 @@
+/* Fonts */
+
+@font-face {
+  font-display: swap;
+  font-family: "Hanken Grotesk";
+  src: url("/assets/fonts/hankengrotesk-variablefont_wght-webfont.woff2")
+      format("woff2"),
+    url("/assets/fonts/hankengrotesk-variablefont_wght-webfont.woff")
+      format("woff");
+  font-style: normal;
+}
+
+/* Basic styles */
+
+body {
+  font-family: "Hanken Grotesk", sans-serif;
+}
