@@ -45,19 +45,49 @@ function createListItem(idValue) {
 
 function setDataAndClasses(category, href, score) {
   const id = document.getElementById(category.toLowerCase());
+  const useTag = id.querySelector("use");
+  const figcaptionTag = id.querySelector("figcaption");
+  const strongTag = id.querySelector("strong");
 
   switch (category.toLowerCase()) {
     case "reaction":
       id.classList.add("list-item--bg-reaction");
 
-      const useTag = id.querySelector("use");
       useTag.setAttribute("href", href);
 
-      const figcaptionTag = id.querySelector("figcaption");
       figcaptionTag.classList.add("list-item__clr-reaction");
       figcaptionTag.textContent = category;
 
-      const strongTag = id.querySelector("strong");
+      strongTag.textContent = `${score}`;
+      break;
+    case "memory":
+      id.classList.add("list-item--bg-memory");
+
+      useTag.setAttribute("href", href);
+
+      figcaptionTag.classList.add("list-item__clr-memory");
+      figcaptionTag.textContent = category;
+
+      strongTag.textContent = `${score}`;
+      break;
+    case "verbal":
+      id.classList.add("list-item--bg-verbal");
+
+      useTag.setAttribute("href", href);
+
+      figcaptionTag.classList.add("list-item__clr-verbal");
+      figcaptionTag.textContent = category;
+
+      strongTag.textContent = `${score}`;
+      break;
+    case "visual":
+      id.classList.add("list-item--bg-visual");
+
+      useTag.setAttribute("href", href);
+
+      figcaptionTag.classList.add("list-item__clr-visual");
+      figcaptionTag.textContent = category;
+
       strongTag.textContent = `${score}`;
   }
 }
