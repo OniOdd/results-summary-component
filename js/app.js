@@ -2,7 +2,14 @@
 
 const summaryList = document.getElementById("summary-list");
 
-summaryList.append(createListItem("reaction"));
+const category = "Reaction";
+const score = 80;
+const icon = "./assets/images/icons-sprite.svg#icon-reaction";
+
+const listItem = createListItem(category.toLowerCase());
+
+summaryList.append(listItem);
+setDataAndClasses(category, icon, score);
 
 function createListItem(idValue) {
   const li = document.createElement("li");
@@ -34,4 +41,23 @@ function createListItem(idValue) {
   span.prepend(strong);
 
   return li;
+}
+
+function setDataAndClasses(category, href, score) {
+  const id = document.getElementById(category.toLowerCase());
+
+  switch (category.toLowerCase()) {
+    case "reaction":
+      id.classList.add("list-item--bg-reaction");
+
+      const useTag = id.querySelector("use");
+      useTag.setAttribute("href", href);
+
+      const figcaptionTag = id.querySelector("figcaption");
+      figcaptionTag.classList.add("list-item__clr-reaction");
+      figcaptionTag.textContent = category;
+
+      const strongTag = id.querySelector("strong");
+      strongTag.textContent = `${score}`;
+  }
 }
