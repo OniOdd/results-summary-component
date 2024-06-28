@@ -10,6 +10,32 @@
   font-style: normal;
 }
 
+/* Animations */
+
+@keyframes scale-up {
+  from {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes from-left {
+  from {
+    transform: translateX(-15px);
+    opacity: 0.4;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 /* Colors */
 
 :root {
@@ -114,6 +140,7 @@ ul {
   );
   background-repeat: no-repeat;
   border-radius: 50%;
+  animation: scale-up 600ms;
 }
 
 .test-card__score-result {
@@ -166,6 +193,7 @@ ul {
   font-weight: 700;
   background-color: hsla(241, 40%, 82%, 0.5);
   border-radius: 10px;
+  animation: from-left 600ms;
 }
 
 .list-item--bg-reaction {
