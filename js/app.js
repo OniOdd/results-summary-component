@@ -49,7 +49,7 @@ function setDataAndClasses(category, href, score) {
       figcaptionTag.classList.add("list-item__clr-reaction");
       figcaptionTag.textContent = category;
 
-      strongTag.textContent = `${score}`;
+      countUpTo(score, strongTag);
       break;
     case "memory":
       id.classList.add("list-item--bg-memory");
@@ -59,7 +59,7 @@ function setDataAndClasses(category, href, score) {
       figcaptionTag.classList.add("list-item__clr-memory");
       figcaptionTag.textContent = category;
 
-      strongTag.textContent = `${score}`;
+      countUpTo(score, strongTag);
       break;
     case "verbal":
       id.classList.add("list-item--bg-verbal");
@@ -69,7 +69,7 @@ function setDataAndClasses(category, href, score) {
       figcaptionTag.classList.add("list-item__clr-verbal");
       figcaptionTag.textContent = category;
 
-      strongTag.textContent = `${score}`;
+      countUpTo(score, strongTag);
       break;
     case "visual":
       id.classList.add("list-item--bg-visual");
@@ -79,7 +79,7 @@ function setDataAndClasses(category, href, score) {
       figcaptionTag.classList.add("list-item__clr-visual");
       figcaptionTag.textContent = category;
 
-      strongTag.textContent = `${score}`;
+      countUpTo(score, strongTag);
   }
 }
 
@@ -118,4 +118,18 @@ async function useData() {
 function insertToPage(fn) {
   const summaryList = document.getElementById("summary-list");
   summaryList.append(fn);
+}
+
+function countUpTo(score, element) {
+  let currentValue = 0;
+  const delay = 10;
+
+  const interval = setInterval(() => {
+    if (currentValue < score) {
+      currentValue++;
+      element.textContent = currentValue;
+    } else {
+      clearInterval(interval);
+    }
+  }, delay);
 }
