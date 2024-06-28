@@ -85,7 +85,9 @@ function setDataAndClasses(category, href, score) {
 
 async function getData() {
   try {
-    const response = await fetch("../data/data.json");
+    const response = await fetch(
+      "https://raw.githubusercontent.com/OniOdd/results-summary-component/main/data/data.json"
+    );
 
     if (!response.ok) {
       alert(`Network response was not ok! (${response.statusText})`);
