@@ -112,6 +112,8 @@ async function useData() {
       insertToPage(createListItem(category.toLowerCase()));
       setDataAndClasses(category, href, score);
     }
+
+    setScoreResult(data);
   }
 }
 
@@ -132,4 +134,15 @@ function countUpTo(score, element) {
       clearInterval(interval);
     }
   }, delay);
+}
+
+function setScoreResult(data) {
+  const scoreBlock = document.getElementById("score-result");
+  let scoreSum = 0;
+  let average;
+
+  data.forEach((item) => (scoreSum += item.score));
+  average = Math.round(scoreSum / data.length);
+
+  countUpTo(average, scoreBlock);
 }
