@@ -1,15 +1,6 @@
 "use strict";
 
-const summaryList = document.getElementById("summary-list");
-
-const category = "Reaction";
-const score = 80;
-const icon = "./assets/images/icons-sprite.svg#icon-reaction";
-
-const listItem = createListItem(category.toLowerCase());
-
-summaryList.append(listItem);
-setDataAndClasses(category, icon, score);
+useData();
 
 function createListItem(idValue) {
   const li = document.createElement("li");
@@ -107,4 +98,24 @@ async function getData() {
   } catch (error) {
     console.error("There has been a problem with your fetch operation:", error);
   }
+}
+
+async function useData() {
+  const data = await getData();
+
+  if (data && data.length > 0) {
+    for (let i = 0; i < data.length; i++) {
+      const category = data[i].category;
+      const href = data[i].src;
+      const score = data[i].score;
+
+      insertToPage(createListItem(category.toLowerCase()));
+      setDataAndClasses(category, href, score);
+    }
+  }
+}
+
+function insertToPage(fn) {
+  const summaryList = document.getElementById("summary-list");
+  summaryList.append(fn);
 }
