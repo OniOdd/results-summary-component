@@ -106,7 +106,7 @@ async function useData() {
   if (data && data.length > 0) {
     for (let i = 0; i < data.length; i++) {
       const category = data[i].category;
-      const href = data[i].src;
+      const href = data[i].icon;
       const score = data[i].score;
 
       insertToPage(createListItem(category.toLowerCase()));
