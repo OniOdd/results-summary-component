@@ -71,7 +71,6 @@ ul {
   display: flex;
   flex-direction: column;
   inline-size: 100%;
-  max-inline-size: 736px;
   background-color: var(--clr-white);
 }
 
@@ -254,7 +253,30 @@ ul {
 /* Media queries */
 
 @media (min-width: 768px) {
+  .page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-block-size: 100vh;
+    padding: 15px;
+  }
+
+  .test-card {
+    flex-direction: row;
+    max-inline-size: 736px;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 15px 25px 30px var(--clr-pale-blue);
+  }
+
   .test-card__header {
+    flex: 0 1 368px;
     padding: 38px 62px 55px 61px;
+    border-end-start-radius: 0;
+    border-start-end-radius: 32px;
+  }
+
+  .test-card__summary-section {
+    flex: 0 1 50%;
   }
 }
