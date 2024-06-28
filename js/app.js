@@ -91,3 +91,20 @@ function setDataAndClasses(category, href, score) {
       strongTag.textContent = `${score}`;
   }
 }
+
+async function getData() {
+  try {
+    const response = await fetch("../data/data.json");
+
+    if (!response.ok) {
+      alert(`Network response was not ok! (${response.statusText})`);
+      throw new Error(`Network response was not ok! (${response.statusText})`);
+    }
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error("There has been a problem with your fetch operation:", error);
+  }
+}
