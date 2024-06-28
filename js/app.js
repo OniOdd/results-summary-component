@@ -19,10 +19,10 @@ function createListItem(idValue) {
   const figure = document.createElement("figure");
   figure.classList.add("list-item__figure");
 
-  const svg = document.createElement("svg");
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.classList.add("icon");
 
-  const use = document.createElement("use");
+  const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
 
   const figcaption = document.createElement("figcaption");
   figcaption.textContent = "Title";
